@@ -22,10 +22,8 @@ jobs:
     - name: Configurar Gradle
       uses: gradle/actions/setup-gradle@v3
 
-    - name: Generar Wrapper y Compilar APK
-      run: |
-        gradle wrapper --gradle-version 8.2
-        ./gradlew assembleDebug --stacktrace
+    - name: Compilar APK
+      run: gradle assembleDebug --stacktrace
 
     - name: Subir el APK generado como artefacto
       uses: actions/upload-artifact@v4
